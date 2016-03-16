@@ -28,7 +28,7 @@ import org.apache.flink.streaming.util.serialization.SimpleStringSchema;
 /**
  * Demo for reading from a MapR stream
  *
- * Arguments for MapR virtual machine: --topic /user/mapr/test:abc --bootstrap.servers localhost:7222
+ * Arguments for MapR virtual machine: --topic /user/mapr/test:abc --group.id myGroup
  */
 public class MapRStreamsDemo {
 
@@ -36,8 +36,8 @@ public class MapRStreamsDemo {
 		// parse input arguments
 		final ParameterTool parameterTool = ParameterTool.fromArgs(args);
 
-		if(parameterTool.getNumberOfParameters() < 3) {
-			System.out.println("Missing parameters!\nUsage: Kafka --topic <topic> --bootstrap.servers <kafka brokers> --group.id <some id>");
+		if(parameterTool.getNumberOfParameters() < 2) {
+			System.out.println("Missing parameters!\nUsage: Kafka --topic <topic> --group.id <some id>");
 			System.exit(1);
 		}
 
